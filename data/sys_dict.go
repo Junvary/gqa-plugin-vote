@@ -78,10 +78,10 @@ var sysDictData = []system.SysDict{
 		ParentCode: "voteDyRatio", DictCode: "dy_jijian", DictLabel: "纪检委员", DictExt1: "10",
 	},
 	{GqaModel: global.GqaModel{Stable: "yes", Status: "on", Sort: 3, CreatedAt: time.Now(), CreatedBy: "admin"},
-		ParentCode: "voteDyRatio", DictCode: "dy_zhiweihui", DictLabel: "支委会成员", DictExt1: "40",
+		ParentCode: "voteDyRatio", DictCode: "dy_zhiweihui", DictLabel: "党员", DictExt1: "40",
 	},
 	{GqaModel: global.GqaModel{Stable: "yes", Status: "on", Sort: 4, CreatedAt: time.Now(), CreatedBy: "admin"},
-		ParentCode: "voteDyRatio", DictCode: "dy_qita", DictLabel: "其他评议人员", DictExt1: "40", DictExt2: "dy_base",
+		ParentCode: "voteDyRatio", DictCode: "dy_qita", DictLabel: "职工代表", DictExt1: "40", DictExt2: "dy_base",
 	},
 
 	{GqaModel: global.GqaModel{Stable: "yes", Status: "on", Sort: 705, Remark: "民主评议业务骨干及管理人员投票权重", CreatedAt: time.Now(), CreatedBy: "admin"},
@@ -96,8 +96,6 @@ var sysDictData = []system.SysDict{
 	{GqaModel: global.GqaModel{Stable: "yes", Status: "on", Sort: 3, CreatedAt: time.Now(), CreatedBy: "admin"},
 		ParentCode: "voteGlRatio", DictCode: "gl_banzi", DictLabel: "班子成员", DictExt1: "40",
 	},
-
-
 }
 
 func (s *sysDict) LoadData() error {
