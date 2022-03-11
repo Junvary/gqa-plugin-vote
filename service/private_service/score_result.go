@@ -6,6 +6,26 @@ import (
 	"gorm.io/gorm"
 )
 
+func VoteResultVoted(getVoteScoreVoted model.RequestScoreResultVoted) (err error, score []model.GqaPluginVoteScoreResult) {
+	var voteScoreList []model.GqaPluginVoteScoreResult
+	var db *gorm.DB
+	db = global.GqaDb.Model(&model.GqaPluginVoteScoreResult{})
+	//配置搜索
+	if getVoteScoreVoted.VoteMonth != "" {
+		db = db.Where("vote_month like ?", "%"+getVoteScoreVoted.VoteMonth+"%")
+	}
+	if getVoteScoreVoted.VoteType != "" {
+		db = db.Where("vote_type like ?", "%"+getVoteScoreVoted.VoteType+"%")
+	}
+	if err != nil {
+		return
+	}
+	err = db.Distinct("vote_from").Order(global.OrderByColumn("vote_month", true)).
+		Order(global.OrderByColumn("candidate", false)).
+		Preload("VoteFromByUser").Find(&voteScoreList).Error
+	return err, voteScoreList
+}
+
 func VoteResultList(getVoteScoreList model.RequestScoreResultList, username string) (err error, score []model.GqaPluginVoteScoreResult, total int64) {
 	pageSize := getVoteScoreList.PageSize
 	offset := getVoteScoreList.PageSize * (getVoteScoreList.Page - 1)

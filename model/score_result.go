@@ -37,3 +37,8 @@ type RequestScoreResultList struct {
 	VoteType  string `json:"voteType"`
 	VoteMonth string `json:"voteMonth"`
 }
+
+type RequestScoreResultVoted struct {
+	VoteType  string `json:"voteType"`
+	VoteMonth string `json:"voteMonth"`
+}

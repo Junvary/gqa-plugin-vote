@@ -10,6 +10,23 @@ import (
 	"go.uber.org/zap"
 )
 
+func VoteResultVoted(c *gin.Context) {
+	var getVoteScoreVoted model.RequestScoreResultVoted
+	if err := c.ShouldBindJSON(&getVoteScoreVoted); err != nil {
+		global.GqaLog.Error("模型绑定失败！", zap.Any("err", err))
+		global.ErrorMessage("模型绑定失败，"+err.Error(), c)
+		return
+	}
+	if err, voter := private_service.VoteResultVoted(getVoteScoreVoted); err != nil {
+		global.GqaLog.Error("获取已经投票人列表失败！", zap.Any("err", err))
+		global.ErrorMessage("获取已经投票人列表失败！"+err.Error(), c)
+	} else {
+		global.SuccessData(system.ResponsePage{
+			Records: voter,
+		}, c)
+	}
+}
+
 func VoteResultList(c *gin.Context) {
 	var getVoteScoreList model.RequestScoreResultList
 	if err := c.ShouldBindJSON(&getVoteScoreList); err != nil {

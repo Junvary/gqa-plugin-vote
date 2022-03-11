@@ -22,6 +22,8 @@ func InitPrivateRouter(privateGroup *gin.RouterGroup) {
 		voteRouter.POST("can-vote-dy", private_api.CanVoteDy)
 		//检查是否可以投票-管理
 		voteRouter.POST("can-vote-gl", private_api.CanVoteGl)
+		//投票结果查看已经投票人
+		voteRouter.POST("vote-result-voted", private_api.VoteResultVoted)
 		//投票结果列表
 		voteRouter.POST("vote-result-list", private_api.VoteResultList)
 		//投票结果图形
