@@ -20,8 +20,7 @@ func VoteResultVoted(getVoteScoreVoted model.RequestScoreResultVoted) (err error
 	if err != nil {
 		return
 	}
-	err = db.Distinct("vote_from").Order(global.OrderByColumn("vote_month", true)).
-		Order(global.OrderByColumn("candidate", false)).
+	err = db.Distinct("vote_from").Order(global.OrderByColumn("vote_from", true)).
 		Preload("VoteFromByUser").Find(&voteScoreList).Error
 	return err, voteScoreList
 }

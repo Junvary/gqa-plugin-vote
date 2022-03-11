@@ -21,6 +21,7 @@ var sysCasbinData = []gormadapter.CasbinRule{
 	{Ptype: "p", V0: "super-admin", V1: "/plugin-vote/vote-handle", V2: "POST"},
 	{Ptype: "p", V0: "super-admin", V1: "/plugin-vote/can-vote-dy", V2: "POST"},
 	{Ptype: "p", V0: "super-admin", V1: "/plugin-vote/can-vote-gl", V2: "POST"},
+	{Ptype: "p", V0: "super-admin", V1: "/plugin-vote/vote-result-voted", V2: "POST"},
 	{Ptype: "p", V0: "super-admin", V1: "/plugin-vote/vote-result-list", V2: "POST"},
 	{Ptype: "p", V0: "super-admin", V1: "/plugin-vote/vote-result-chart", V2: "POST"},
 	{Ptype: "p", V0: "super-admin", V1: "/plugin-vote/voter-list", V2: "POST"},
