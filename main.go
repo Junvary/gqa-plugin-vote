@@ -20,7 +20,7 @@ func (*vote) PluginName() string { //实现接口方法，插件名称
 }
 
 func (*vote) PluginVersion() string { //实现接口方法，插件版本
-	return "v0.0.1"
+	return "v0.0.5"
 }
 
 func (*vote) PluginRemark() string { //实现接口方法，插件描述
