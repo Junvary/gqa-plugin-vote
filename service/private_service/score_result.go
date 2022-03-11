@@ -14,7 +14,7 @@ func VoteResultList(getVoteScoreList model.RequestScoreResultList, username stri
 	db = global.GqaDb.Model(&model.GqaPluginVoteScoreResult{})
 	//配置搜索
 	if getVoteScoreList.VoteMonth != "" {
-		db = db.Where("vote_month = ?", getVoteScoreList.VoteMonth)
+		db = db.Where("vote_month like ?", "%"+getVoteScoreList.VoteMonth+"%")
 	}
 	if getVoteScoreList.VoteType != "" {
 		db = db.Where("vote_type like ?", "%"+getVoteScoreList.VoteType+"%")
@@ -37,7 +37,7 @@ func VoteResultChart(getVoteScoreList model.RequestScoreResultList, username str
 	db = global.GqaDb.Model(&model.GqaPluginVoteScoreResult{})
 	//配置搜索
 	if getVoteScoreList.VoteMonth != "" {
-		db = db.Where("vote_month = ?", getVoteScoreList.VoteMonth)
+		db = db.Where("vote_month like ?", "%"+getVoteScoreList.VoteMonth+"%")
 	}
 	if getVoteScoreList.VoteType != "" {
 		db = db.Where("vote_type like ?", "%"+getVoteScoreList.VoteType+"%")
