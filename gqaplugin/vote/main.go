@@ -1,9 +1,9 @@
 package vote
 
 import (
-	"github.com/Junvary/gqa-plugin-vote/data"
-	"github.com/Junvary/gqa-plugin-vote/model"
-	"github.com/Junvary/gqa-plugin-vote/router/private_router"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/vote/boot/data"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/vote/model"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/vote/router/private_router"
 	"github.com/gin-gonic/gin"
 )
 

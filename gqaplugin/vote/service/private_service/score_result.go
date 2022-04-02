@@ -2,7 +2,7 @@ package private_service
 
 import (
 	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/global"
-	"github.com/Junvary/gqa-plugin-vote/model"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/vote/model"
 	"gorm.io/gorm"
 )
 

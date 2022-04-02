@@ -2,10 +2,10 @@ package private_api
 
 import (
 	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/global"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/vote/model"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/vote/service/private_service"
 	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/model/system"
 	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/utils"
-	"github.com/Junvary/gqa-plugin-vote/model"
-	"github.com/Junvary/gqa-plugin-vote/service/private_service"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )
