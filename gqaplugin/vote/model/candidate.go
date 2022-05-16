@@ -1,16 +1,15 @@
 package model
 
 import (
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/global"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/model/system"
+	gqaModel "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/model"
 )
 
 type GqaPluginVoteCandidate struct {
-	Id              uint           `json:"id" gorm:"comment:id;autoIncrement;index"`
-	Candidate       string         `json:"candidate" gorm:"primaryKey;comment:候选人;index;not null"`
-	CandidateByUser system.SysUser `json:"candidateByUser" gorm:"foreignKey:Candidate;references:Username"`
-	VoteType        string         `json:"voteType" gorm:"primaryKey;comment:投票类型;index"`
-	CreatedBy       string         `json:"createdBy" gorm:"comment:创建人"`
+	Id              uint             `json:"id" gorm:"comment:id;autoIncrement;index"`
+	Candidate       string           `json:"candidate" gorm:"primaryKey;comment:候选人;index;not null"`
+	CandidateByUser gqaModel.SysUser `json:"candidateByUser" gorm:"foreignKey:Candidate;references:Username"`
+	VoteType        string           `json:"voteType" gorm:"primaryKey;comment:投票类型;index"`
+	CreatedBy       string           `json:"createdBy" gorm:"comment:创建人"`
 }
 
 type RequestAddCandidate struct {
@@ -19,7 +18,7 @@ type RequestAddCandidate struct {
 }
 
 type RequestCandidateList struct {
-	global.RequestPageAndSort
+	gqaModel.RequestPageAndSort
 	//可扩充的模糊搜索项，参考上面 RequestAddCandidate 中的字段
 	Candidate string `json:"candidate"`
 	VoteType  string `json:"voteType"`

@@ -1,9 +1,9 @@
 package vote
 
 import (
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/vote/boot/data"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/vote/data"
 	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/vote/model"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/vote/router/private_router"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/vote/router/privaterouter"
 	"github.com/gin-gonic/gin"
 )
 
@@ -20,10 +20,10 @@ func (*vote) PluginName() string { //实现接口方法，插件名称
 }
 
 func (*vote) PluginVersion() string { //实现接口方法，插件版本
-	return "v0.0.5"
+	return "v2.0.0"
 }
 
-func (*vote) PluginRemark() string { //实现接口方法，插件描述
+func (*vote) PluginMemo() string { //实现接口方法，插件描述
 	return "这是投票系统"
 }
 
@@ -32,7 +32,7 @@ func (p *vote) PluginRouterPublic(publicGroup *gin.RouterGroup) { //实现接口
 }
 
 func (p *vote) PluginRouterPrivate(privateGroup *gin.RouterGroup) { //实现接口方法，鉴权路由初始化
-	private_router.InitPrivateRouter(privateGroup)
+	privaterouter.InitPrivateRouter(privateGroup)
 }
 
 func (p *vote) PluginMigrate() []interface{} { //实现接口方法，迁移插件数据表
@@ -48,7 +48,7 @@ func (p *vote) PluginMigrate() []interface{} { //实现接口方法，迁移插�
 func (p *vote) PluginData() []interface{ LoadData() (err error) } { //实现接口方法，初始化数据
 	var DataList = []interface{ LoadData() (err error) }{
 		data.PluginVoteSysApi,
-		data.PluginVoteSysCasbin,
+		data.PluginVoteSysRoleApi,
 		data.PluginVoteSysMenu,
 		data.PluginVoteSysRoleMenu,
 		data.PluginVoteSysDict,
