@@ -171,6 +171,7 @@ const {
     showAddForm,
     showEditForm,
     onRequest,
+    getTableData,
     handleSearch,
     resetSearch,
     handleFinish,
@@ -178,10 +179,7 @@ const {
 } = useTableData(url)
 
 onMounted(() => {
-    onRequest({
-        pagination: pagination.value,
-        queryParams: queryParams.value
-    })
+    getTableData()
 })
 const loadingBase = ref(false)
 const tableDataBase = ref([])
@@ -235,10 +233,7 @@ const randomUserForm = ref(null)
 const handleRandom = async () => {
     const success = await randomUserForm.value.validate()
     if (success) {
-        onRequest({
-            pagination: pagination.value,
-            queryParams: queryParams.value
-        })
+        getTableData()
     } else {
         $q.notify({
             type: 'negative',

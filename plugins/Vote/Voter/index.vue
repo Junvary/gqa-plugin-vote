@@ -134,6 +134,7 @@ const {
     showAddForm,
     showEditForm,
     onRequest,
+    getTableData,
     handleSearch,
     // resetSearch,
     handleFinish,
@@ -143,10 +144,7 @@ const {
 onMounted(() => {
     queryParams.value.voteType = 'dy'
     queryParams.value.voteRatio = ''
-    onRequest({
-        pagination: pagination.value,
-        queryParams: queryParams.value
-    })
+    getTableData()
 })
 const selectRatio = ref('')
 const selectRatioLabel = ref('')
@@ -156,17 +154,11 @@ const resetSearch = () => {
         voteType: 'dy',
         voteRatio: '',
     }
-    onRequest({
-        pagination: pagination.value,
-        queryParams: queryParams.value
-    })
+    getTableData()
 }
 const handleSearchWithRatio = () => {
     queryParams.value.voteRatio = ''
-    onRequest({
-        pagination: pagination.value,
-        queryParams: queryParams.value
-    })
+    getTableData()
 }
 const selectUserDialog = ref(null)
 const showAddUserForm = (dictCode, dictLabel) => {
@@ -190,10 +182,7 @@ const handleAddUser = (event) => {
                 message: res.message,
             })
         }
-        onRequest({
-            pagination: pagination.value,
-            queryParams: queryParams.value
-        })
+        getTableData()
     })
 }
 </script>

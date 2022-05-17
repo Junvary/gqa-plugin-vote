@@ -106,6 +106,7 @@ const {
     showAddForm,
     showEditForm,
     onRequest,
+    getTableData,
     handleSearch,
     resetSearch,
     handleFinish,
@@ -114,10 +115,7 @@ const {
 
 onMounted(() => {
     queryParams.value.voteType = 'dy'
-    onRequest({
-        pagination: pagination.value,
-        queryParams: queryParams.value
-    })
+    getTableData()
 })
 
 const selectUserDialog = ref(null)
@@ -140,10 +138,7 @@ const handleAddUser = (event) => {
                 message: res.message,
             })
         }
-        onRequest({
-            pagination: pagination.value,
-            queryParams: queryParams.value
-        })
+        getTableData()
     })
 }
 </script>

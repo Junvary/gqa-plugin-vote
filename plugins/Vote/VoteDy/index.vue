@@ -29,7 +29,7 @@
                         本轮已投票或没有投票权限!
                     </span>
                 </q-toolbar>
-                <q-form ref="candidateFormDy" v-if="canVoteDy" class="gqa-form">
+                <q-form ref="candidateFormDy" v-if="canVoteDy">
                     <template v-if="candidateListDy.length">
                         <q-card v-for="(item, index) in candidateListDy" :key="index" bordered>
                             <q-card-section style="padding: 0 4px">
@@ -89,6 +89,7 @@ const {
     showAddForm,
     showEditForm,
     onRequest,
+    getTableData,
     handleSearch,
     resetSearch,
     handleFinish,
@@ -139,10 +140,7 @@ const checkCanVote = () => {
     })
 }
 const changeTableData = () => {
-    onRequest({
-        pagination: pagination.value,
-        queryParams: queryParams.value
-    }).then(() => {
+    getTableData().then(() => {
         candidateListDy.value = tableData.value.filter((item) => item.voteType === 'dy')
         for (let dy of candidateListDy.value) {
             for (let dict of trueVoteTypeDetailDy.value) {

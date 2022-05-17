@@ -131,6 +131,7 @@ const {
     showAddForm,
     showEditForm,
     onRequest,
+    getTableData,
     handleSearch,
     resetSearch,
     handleFinish,
@@ -170,10 +171,7 @@ const getTableDataAll = () => {
     getTableDataVoted()
 }
 const getTableDataList = () => {
-    onRequest({
-        pagination: pagination.value,
-        queryParams: queryParams.value
-    })
+    getTableData()
 }
 const getTableDataVoted = async () => {
     await postAction(url.voted, queryParams.value).then((res) => {
